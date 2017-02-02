@@ -8,6 +8,7 @@ use_frameworks!
 	pod 'Alamofire', '~> 4.0'
 	pod 'AlamofireObjectMapper', '~> 4.0'
 	pod 'Gloss'
+	pod 'SDWebImage'
 end
 
 

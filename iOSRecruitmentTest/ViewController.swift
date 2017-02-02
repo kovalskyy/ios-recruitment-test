@@ -16,6 +16,9 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var inSearchMode = false
+    var filetered = [ItemRealm]()
+    
     let realm = try! Realm()
     var results = try! Realm().objects(ItemRealm.self).sorted(byKeyPath: "id")
     let SERVER_URL = "http://192.168.1.101:8080/api/items"
@@ -26,7 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
         Alamofire.request(SERVER_URL).responseJSON { response in
             let items = [Item].from(jsonArray: response.result.value as! [Gloss.JSON])
             print(items?[0] as Any)
-              self.tableView.reloadData()
+             // self.tableView.reloadData()
             
             try! self.realm.write {
                 for item in items! {
@@ -39,14 +42,16 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
                     self.tableView.reloadData()
                 }
             }
-            self.results = self.realm.objects(ItemRealm.self)
+            let itemRealms = self.realm.objects(ItemRealm.self)
+            print(itemRealms[0])
+            
+            //self.results = self.realm.objects(ItemRealm.self)
             // print(items?[0] as Any)
         }
 
-        
-
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+      
     }
 
 

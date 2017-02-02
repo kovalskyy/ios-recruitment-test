@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TableViewCell: UITableViewCell {
 
-    var item: AnyObject? {
+    var item: ItemRealm? {
         didSet {
             if item == nil {
                 iconView.image = nil
                 itemTitleLabel.text = "Test"
                 itemDescLabel.text = "Some description"
             } else {
-                // TODO: Implement item sets
+             //    TODO: Implement item sets
+                
+                iconView.sd_setImage(with: URL(string: item!.icon), placeholderImage: UIImage(named: "placeholder.png"), options: SDWebImageOptions(), completed: { (image: UIImage?, error: Error?, cachetype: SDImageCacheType, imageURL: URL?) in
+                })
+                
+                itemTitleLabel.text = item?.name
+                itemDescLabel.text = item?.desc
+                
             }
         }
     }
