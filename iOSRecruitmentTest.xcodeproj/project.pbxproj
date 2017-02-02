@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23735F0C1E433EB000455115 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0A1E433EB000455115 /* Realm.framework */; };
+		23735F0D1E433EB000455115 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0A1E433EB000455115 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23735F0E1E433EB000455115 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0B1E433EB000455115 /* RealmSwift.framework */; };
+		23735F0F1E433EB000455115 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0B1E433EB000455115 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		491B6FD7CCA89DEDD2A52E37 /* Pods_iOSRecruitmentTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7101931A139344E52667944F /* Pods_iOSRecruitmentTest.framework */; };
 		D93FDE421D114DEA00AB8D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93FDE411D114DEA00AB8D9B /* AppDelegate.swift */; };
 		D93FDE4A1D114DEA00AB8D9B /* iOSRecruitmentTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D93FDE481D114DEA00AB8D9B /* iOSRecruitmentTest.xcdatamodeld */; };
 		D93FDE4C1D114DEA00AB8D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93FDE4B1D114DEA00AB8D9B /* Assets.xcassets */; };
@@ -17,7 +22,27 @@
 		D93FDE5F1D11517400AB8D9B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93FDE5E1D11517400AB8D9B /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		23735F101E433EB000455115 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23735F0F1E433EB000455115 /* RealmSwift.framework in Embed Frameworks */,
+				23735F0D1E433EB000455115 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		23735F0A1E433EB000455115 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		23735F0B1E433EB000455115 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		2424DFE68DBB18412A785CD6 /* Pods-iOSRecruitmentTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSRecruitmentTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSRecruitmentTest/Pods-iOSRecruitmentTest.debug.xcconfig"; sourceTree = "<group>"; };
+		493872438ECCC39683CB3DB0 /* Pods-iOSRecruitmentTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSRecruitmentTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSRecruitmentTest/Pods-iOSRecruitmentTest.release.xcconfig"; sourceTree = "<group>"; };
+		7101931A139344E52667944F /* Pods_iOSRecruitmentTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSRecruitmentTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93FDE3E1D114DEA00AB8D9B /* iOSRecruitmentTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSRecruitmentTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93FDE411D114DEA00AB8D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93FDE491D114DEA00AB8D9B /* iOSRecruitmentTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSRecruitmentTest.xcdatamodel; sourceTree = "<group>"; };
@@ -35,17 +60,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23735F0C1E433EB000455115 /* Realm.framework in Frameworks */,
+				491B6FD7CCA89DEDD2A52E37 /* Pods_iOSRecruitmentTest.framework in Frameworks */,
+				23735F0E1E433EB000455115 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF2E5720ECC21D1C093CAC42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2424DFE68DBB18412A785CD6 /* Pods-iOSRecruitmentTest.debug.xcconfig */,
+				493872438ECCC39683CB3DB0 /* Pods-iOSRecruitmentTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CC8DD96F05B2E0F02413E8BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7101931A139344E52667944F /* Pods_iOSRecruitmentTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D93FDE351D114DEA00AB8D9B = {
 			isa = PBXGroup;
 			children = (
+				23735F0A1E433EB000455115 /* Realm.framework */,
+				23735F0B1E433EB000455115 /* RealmSwift.framework */,
 				D93FDE401D114DEA00AB8D9B /* iOSRecruitmentTest */,
 				D93FDE3F1D114DEA00AB8D9B /* Products */,
+				BF2E5720ECC21D1C093CAC42 /* Pods */,
+				CC8DD96F05B2E0F02413E8BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +129,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D93FDE531D114DEA00AB8D9B /* Build configuration list for PBXNativeTarget "iOSRecruitmentTest" */;
 			buildPhases = (
+				5C394180A2C569049714D86C /* [CP] Check Pods Manifest.lock */,
 				D93FDE3A1D114DEA00AB8D9B /* Sources */,
 				D93FDE3B1D114DEA00AB8D9B /* Frameworks */,
 				D93FDE3C1D114DEA00AB8D9B /* Resources */,
+				C1D1452C9DFC3F046B18811E /* [CP] Embed Pods Frameworks */,
+				DA4CCF378D3C2B9CFB8160D6 /* [CP] Copy Pods Resources */,
+				23735F101E433EB000455115 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -105,6 +158,7 @@
 				TargetAttributes = {
 					D93FDE3D1D114DEA00AB8D9B = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -139,6 +193,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C394180A2C569049714D86C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C1D1452C9DFC3F046B18811E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSRecruitmentTest/Pods-iOSRecruitmentTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA4CCF378D3C2B9CFB8160D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSRecruitmentTest/Pods-iOSRecruitmentTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D93FDE3A1D114DEA00AB8D9B /* Sources */ = {
@@ -242,23 +344,35 @@
 		};
 		D93FDE541D114DEA00AB8D9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2424DFE68DBB18412A785CD6 /* Pods-iOSRecruitmentTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iOSRecruitmentTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.snowdog.iOSRecruitmentTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D93FDE551D114DEA00AB8D9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 493872438ECCC39683CB3DB0 /* Pods-iOSRecruitmentTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iOSRecruitmentTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.snowdog.iOSRecruitmentTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
