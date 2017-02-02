@@ -11,6 +11,8 @@
 		23735F0D1E433EB000455115 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0A1E433EB000455115 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23735F0E1E433EB000455115 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0B1E433EB000455115 /* RealmSwift.framework */; };
 		23735F0F1E433EB000455115 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 23735F0B1E433EB000455115 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23735F141E433FCE00455115 /* ItemRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23735F131E433FCE00455115 /* ItemRealm.swift */; };
+		23735F161E43408600455115 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23735F151E43408600455115 /* Item.swift */; };
 		491B6FD7CCA89DEDD2A52E37 /* Pods_iOSRecruitmentTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7101931A139344E52667944F /* Pods_iOSRecruitmentTest.framework */; };
 		D93FDE421D114DEA00AB8D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93FDE411D114DEA00AB8D9B /* AppDelegate.swift */; };
 		D93FDE4A1D114DEA00AB8D9B /* iOSRecruitmentTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D93FDE481D114DEA00AB8D9B /* iOSRecruitmentTest.xcdatamodeld */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		23735F0A1E433EB000455115 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		23735F0B1E433EB000455115 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		23735F131E433FCE00455115 /* ItemRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRealm.swift; sourceTree = "<group>"; };
+		23735F151E43408600455115 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2424DFE68DBB18412A785CD6 /* Pods-iOSRecruitmentTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSRecruitmentTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSRecruitmentTest/Pods-iOSRecruitmentTest.debug.xcconfig"; sourceTree = "<group>"; };
 		493872438ECCC39683CB3DB0 /* Pods-iOSRecruitmentTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSRecruitmentTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSRecruitmentTest/Pods-iOSRecruitmentTest.release.xcconfig"; sourceTree = "<group>"; };
 		7101931A139344E52667944F /* Pods_iOSRecruitmentTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSRecruitmentTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23735F111E433F9600455115 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				23735F131E433FCE00455115 /* ItemRealm.swift */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		23735F121E433FA000455115 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23735F151E43408600455115 /* Item.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		BF2E5720ECC21D1C093CAC42 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +129,8 @@
 		D93FDE401D114DEA00AB8D9B /* iOSRecruitmentTest */ = {
 			isa = PBXGroup;
 			children = (
+				23735F111E433F9600455115 /* Entity */,
+				23735F121E433FA000455115 /* Model */,
 				D93FDE5A1D114F9300AB8D9B /* TableViewCell.swift */,
 				D93FDE5B1D114F9300AB8D9B /* TableViewCell.xib */,
 				D93FDE561D114E7A00AB8D9B /* ViewController.swift */,
@@ -250,6 +272,8 @@
 				D93FDE581D114E7A00AB8D9B /* ViewController.swift in Sources */,
 				D93FDE5C1D114F9300AB8D9B /* TableViewCell.swift in Sources */,
 				D93FDE4A1D114DEA00AB8D9B /* iOSRecruitmentTest.xcdatamodeld in Sources */,
+				23735F141E433FCE00455115 /* ItemRealm.swift in Sources */,
+				23735F161E43408600455115 /* Item.swift in Sources */,
 				D93FDE421D114DEA00AB8D9B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

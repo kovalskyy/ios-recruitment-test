@@ -7,14 +7,43 @@
 //
 
 import UIKit
+import Alamofire
+import Gloss
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    let realm = try! Realm()
+    var results = try! Realm().objects(ItemRealm.self).sorted(byKeyPath: "id")
+    let SERVER_URL = "http://192.168.1.101:8080/api/items"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Alamofire.request(SERVER_URL).responseJSON { response in
+            let items = [Item].from(jsonArray: response.result.value as! [Gloss.JSON])
+            print(items?[0] as Any)
+              self.tableView.reloadData()
+            
+            try! self.realm.write {
+                for item in items! {
+                    let itemRealm = ItemRealm()
+                    itemRealm.id = item.id!
+                    itemRealm.name = item.name!
+                    itemRealm.desc = item.descr!
+                    itemRealm.icon = item.icon!
+                    self.realm.add(itemRealm)
+                    self.tableView.reloadData()
+                }
+            }
+            self.results = self.realm.objects(ItemRealm.self)
+            // print(items?[0] as Any)
+        }
+
+        
 
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
@@ -23,13 +52,16 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
 
     // MARK: - UITableView data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
         
-        cell.item = nil
+        var object: ItemRealm
+        object = self.results[indexPath.row] as ItemRealm
+        
+        cell.item = object
         
         return cell
     }
