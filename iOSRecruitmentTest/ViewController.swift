@@ -21,37 +21,31 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
     
     let realm = try! Realm()
     var results = try! Realm().objects(ItemRealm.self).sorted(byKeyPath: "id")
-    let SERVER_URL = "http://192.168.1.101:8080/api/items"
+    
+    //MARK: - Pull to refresh
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
+        return refreshControl
+    }()
+    
+    func handleRefresh() {
+        ServerService.sharedInstance.downloadAndSaveItem()
+        self.refreshControl.endRefreshing()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request(SERVER_URL).responseJSON { response in
-            let items = [Item].from(jsonArray: response.result.value as! [Gloss.JSON])
-            print(items?[0] as Any)
-             // self.tableView.reloadData()
-            
-            try! self.realm.write {
-                for item in items! {
-                    let itemRealm = ItemRealm()
-                    itemRealm.id = item.id!
-                    itemRealm.name = item.name!
-                    itemRealm.desc = item.descr!
-                    itemRealm.icon = item.icon!
-                    self.realm.add(itemRealm)
-                    self.tableView.reloadData()
-                }
-            }
-            let itemRealms = self.realm.objects(ItemRealm.self)
-            print(itemRealms[0])
-            
-            //self.results = self.realm.objects(ItemRealm.self)
-            // print(items?[0] as Any)
-        }
+        ServerService.sharedInstance.downloadAndSaveItem()
+        self.tableView.reloadData()
+        
 
+        
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-      
+        self.tableView.addSubview(self.refreshControl)
     }
 
 
@@ -70,5 +64,31 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchBarDelega
         
         return cell
     }
+    
+    //MARK: - UISeachBar 
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        inSearchMode = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        inSearchMode = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            view.endEditing(true)
+            tableView.reloadData()
+        } else {
+            inSearchMode = true
+        }
+    }
+    
+    
     
 }
